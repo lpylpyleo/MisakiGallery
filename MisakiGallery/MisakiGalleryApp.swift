@@ -12,6 +12,7 @@ struct MisakiGalleryApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(Cards())
         }
     }
 }
