@@ -18,7 +18,7 @@ struct IdolView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            LazyVStack {
                 ForEach(cardsObj.cards.filter { $0.idolID == id }) { card in
                     CardView(card)
                 }
@@ -34,19 +34,14 @@ struct CardView: View {
     }
     
     var body: some View {
-        let url = URL(string: getCardUrl(imageType: ImageType.cardBg, resourceId: card.resourceID))
-        AsyncImage(url: url, content: { phase in
+        let url = URL(string: getCardUrl(imageType: ImageType.card, resourceId: card.resourceID))
+        CachedAsyncImage(url: url, content: { phase in
             switch phase {
             case .empty:
                 ProgressView()
-            case .failure(let error):
-                { () -> Image in
-                    print(error)
-                    return Image(systemName: "exclamationmark.triangle")
-//                        .resizable()
-//                        .aspectRatio( contentMode: .fit)
-                        
-                }()
+            case .failure:
+                ProgressView()
+//               errorView(error: error, url: url)
             case .success(let image):
                 image.resizable().aspectRatio(contentMode: .fit)
             @unknown default:
@@ -54,6 +49,18 @@ struct CardView: View {
             }
         })
             .frame(minHeight: 200)
+    }
+    
+    func errorView(error: Error, url: URL?) -> some View {
+        print("Error: \(error): \(String(describing: url?.absoluteURL))")
+        return VStack {
+            Image(systemName: "exclamationmark.triangle")
+                .resizable()
+                .frame(width:64, height: 64)
+                .aspectRatio(contentMode: .fill)
+            Text(error.localizedDescription)
+                .padding()
+        }
     }
 }
 

@@ -54,7 +54,7 @@ struct ContentView: View {
             cardsObj.cards = cards
             print("Cards count: \(cards.count)")
             let end = Date()
-            print("Time elapsed: \(Calendar.current.dateComponents([.nanosecond], from: start, to: end).nanosecond!/1000000)")
+            print("Time elapsed: \(Calendar.current.dateComponents([.nanosecond], from: start, to: end).nanosecond!/1000000)ms")
         } catch {
             print(error)
         }
