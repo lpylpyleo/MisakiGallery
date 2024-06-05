@@ -22,6 +22,7 @@
 		8CA7B493276C60A400CBA75C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7B492276C60A400CBA75C /* Util.swift */; };
 		8CA7B495276C664200CBA75C /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7B494276C664200CBA75C /* CachedAsyncImage.swift */; };
 		8CA7B497276C732800CBA75C /* IdolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7B496276C732800CBA75C /* IdolView.swift */; };
+		C6BAE2F12C10B08A0025FC6F /* idols.json in Resources */ = {isa = PBXBuildFile; fileRef = C6BAE2F02C10B08A0025FC6F /* idols.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		8CA7B492276C60A400CBA75C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		8CA7B494276C664200CBA75C /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		8CA7B496276C732800CBA75C /* IdolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdolView.swift; sourceTree = "<group>"; };
+		C6BAE2F02C10B08A0025FC6F /* idols.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = idols.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				8CA7B48E276C3D5500CBA75C /* cards.json */,
+				C6BAE2F02C10B08A0025FC6F /* idols.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CA7B461276C256300CBA75C /* Preview Assets.xcassets in Resources */,
+				C6BAE2F12C10B08A0025FC6F /* idols.json in Resources */,
 				8CA7B48F276C3D5500CBA75C /* cards.json in Resources */,
 				8CA7B45E276C256300CBA75C /* Assets.xcassets in Resources */,
 			);

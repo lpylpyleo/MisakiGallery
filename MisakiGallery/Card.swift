@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Card: Identifiable{
-    var id: String {resourceID}
+extension Card: Identifiable {
+    var id: String { resourceID }
 }
 
 // MARK: - Card
@@ -19,17 +19,17 @@ struct Card: Codable {
     let sortID, idolID, idolType: Int
     let resourceID: String
     let rarity: Int
-    let category: String
-    let extraType: Int
+    let category: Int
+    let extraType: Int?
     let costume, bonusCostume: Costume?
-    let flavorText, flavorTextAwakened, awakeningText: String
-    let levelMax, levelMaxAwakened, vocalMin, vocalMax: Int
-    let vocalMinAwakened, vocalMaxAwakened, vocalMasterBonus, danceMin: Int
-    let danceMax, danceMinAwakened, danceMaxAwakened, danceMasterBonus: Int
-    let visualMin, visualMax, visualMinAwakened, visualMaxAwakened: Int
-    let visualMasterBonus, life, masterRankMax: Int
-    let centerEffect: CenterEffect
-    let centerEffectName: String
+    let flavorText, flavorTextAwakened, awakeningText: String?
+    let levelMax, levelMaxAwakened, vocalMin, vocalMax: Int?
+    let vocalMinAwakened, vocalMaxAwakened, vocalMasterBonus, danceMin: Int?
+    let danceMax, danceMinAwakened, danceMaxAwakened, danceMasterBonus: Int?
+    let visualMin, visualMax, visualMinAwakened, visualMaxAwakened: Int?
+    let visualMasterBonus, life, masterRankMax: Int?
+    let centerEffect: CenterEffect?
+    let centerEffectName: String?
     let skill: [Skill]?
     let skillLevelMax: Int?
     let skillName: String?

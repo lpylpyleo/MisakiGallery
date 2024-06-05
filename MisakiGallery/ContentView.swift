@@ -11,6 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var cardsObj: Cards
     @State private var text: String = ""
     @State var firstAppear: Bool = true
+   
     
     var body: some View {
         NavigationView {
@@ -19,7 +20,13 @@ struct ContentView: View {
                 ScrollView(showsIndicators: false) {
                     
                     LazyVGrid(columns: Array(repeating: .init(.flexible()), count: columnCount)) {
-                        ForEach(cardsObj.cards.filter {$0.rarity == 1}) { card in
+                        ForEach(cardsObj.cards.filter {card in
+                           var result =  card.rarity==1
+                            if(!text.isEmpty){
+                                result = result && card.name.contains(text)
+                            }
+                            return result
+                        }) { card in
                             CardIcon(card)
                         }
                     }
@@ -32,9 +39,6 @@ struct ContentView: View {
                     }
                 }
                 .searchable(text: $text)
-                .onSubmit(of: .search) {
-                    // TODO:
-                }
             }
             .navigationTitle("Misaki Gallery")
             .navigationBarTitleDisplayMode(.automatic)

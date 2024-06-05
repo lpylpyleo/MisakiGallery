@@ -11,11 +11,11 @@ import SwiftUI
 struct IdolView: View {
     @EnvironmentObject var cardsObj: Cards
     let id: Int
-    
-    init(_ id: Int){
+
+    init(_ id: Int) {
         self.id = id
     }
-    
+
     var body: some View {
         ScrollView {
             VStack {
@@ -29,23 +29,25 @@ struct IdolView: View {
 
 struct CardView: View {
     let card: Card
+    let url: URL
     init(_ card: Card) {
         self.card = card
+        self.url = URL(string: getCardUrl(imageType: ImageType.cardBg, resourceId: card.resourceID))!
+        print(url.absoluteString)
     }
-    
+
+
+
     var body: some View {
-        let url = URL(string: getCardUrl(imageType: ImageType.cardBg, resourceId: card.resourceID))
+
         AsyncImage(url: url, content: { phase in
             switch phase {
             case .empty:
                 ProgressView()
             case .failure(let error):
                 { () -> Image in
-                    print(error)
+                    print(url, error)
                     return Image(systemName: "exclamationmark.triangle")
-//                        .resizable()
-//                        .aspectRatio( contentMode: .fit)
-                        
                 }()
             case .success(let image):
                 image.resizable().aspectRatio(contentMode: .fit)

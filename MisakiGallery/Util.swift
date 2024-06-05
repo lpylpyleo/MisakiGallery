@@ -6,7 +6,8 @@
 //
 
 import Foundation
-
+// https://storage.matsurihi.me/mltd/card_bg/001har0011_0_a.png
+// https://storage.matsurihi.me/mltd/card/001har0011_0_a.png
 func getCardUrl(
     imageType: ImageType,
     resourceId: String,
@@ -22,7 +23,7 @@ func getCardUrl(
         url = cardUrl + resourceId + suffix1 + suffix2;
         break;
     case ImageType.cardBg:
-        url = cardBgUrl + resourceId + suffix1;
+        url = cardUrl + resourceId + suffix1 + suffix2;
         break;
     case ImageType.event:
         url = eventBgUrl + resourceId;
